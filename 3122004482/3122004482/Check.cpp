@@ -30,6 +30,10 @@ bool Check::check(const char* f, const char* c, const char* a)
 	char* s = nullptr;
 	while (sample.peek()!=EOF ) {
 		s = new char[512];
+		if (s == nullptr) {
+			std::cout << "内存溢出。" << std::endl;
+			return false;
+		}
 		sample.getline(s, 512);
 		load(s);
 		delete[] s;
@@ -37,6 +41,10 @@ bool Check::check(const char* f, const char* c, const char* a)
 	}
 	while (target.peek()!=EOF) {
 		s = new char[512];
+		if (s == nullptr) {
+			std::cout << "内存溢出。" << std::endl;
+			return false;
+		}
 		target.getline(s, 512);
 		find(s);
 		delete[] s;
@@ -46,7 +54,7 @@ bool Check::check(const char* f, const char* c, const char* a)
 		sample.close();
 		target.close();
 		answer.close();
-		std::cout << "无内容";
+		std::cout << "被测试文章无内容"<<std::endl;
 		return false;
 	}
 	double ggg = ((double)same / total)*100;
@@ -67,7 +75,7 @@ void Check::load(const char * sample)
 	}
 }
 
-void Check::find(const char * a)
+void Check::find(const char*  a)
 {
 	for (int i = 0; a[i] != '\0'; i++) {
 		++total;
