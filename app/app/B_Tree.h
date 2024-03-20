@@ -18,14 +18,17 @@ typedef struct Node Node;
 class B_Tree
 {
 	Node* root;
-	~B_Tree();	
+	size_t sum;
 	bool delete_(Node*&a);
-	Node* create(string& a);
+	Node* create(string a);
+	string check(Node*a);
 public:
-	B_Tree();
+	B_Tree();~B_Tree();
 	B_Tree(string& a);
-	bool insert(string& a);
-
+	bool insert(string&& a);
+	bool clear();
+	size_t getSum();
+	string check();
 };
 #endif
 

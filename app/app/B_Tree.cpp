@@ -8,6 +8,7 @@ B_Tree::~B_Tree()
 B_Tree::B_Tree()
 {
 	root = new Node;
+	sum = 0;
 	root->left = nullptr;
 	root->right = nullptr;
 }
@@ -18,7 +19,7 @@ B_Tree::B_Tree(string & a)
 	root->a = a;
 }
 
-bool B_Tree::insert(string& b)
+bool B_Tree::insert(string&& b)
 {
 	Node*a = create(b);
 	if (!a)return false;
@@ -41,10 +42,26 @@ bool B_Tree::insert(string& b)
 		}
 
 	}
+	++sum;
 	return true;
 }
 
-Node* B_Tree::create(string & a)
+bool B_Tree::clear()
+{
+	return delete_(root);
+}
+
+size_t B_Tree::getSum()
+{
+	return sum;
+}
+
+string B_Tree::check()
+{
+	return check(root);
+}
+
+Node* B_Tree::create(string a)
 {
 	if (!root)return nullptr;
 	Node* temp = new Node;
@@ -53,6 +70,18 @@ Node* B_Tree::create(string & a)
 	temp->right = nullptr;
 	temp->a = a;
 	return temp;
+}
+
+string B_Tree::check(Node * a)
+{
+	if (a == nullptr) {
+		return string();
+	}
+	string t;
+	t = t + check(a->left);
+	t = t + a->a;
+	t = t + check(a->right);
+	return t;
 }
 
 
