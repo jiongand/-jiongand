@@ -1,4 +1,4 @@
-#ifndef MMM
+ï»¿#ifndef MMM
 #define MMM
 #include"B_Tree.h"
 #include<random>
@@ -7,18 +7,28 @@ class mmm
 	vector<B_Tree> forest;
 	int max_Tree;
 	int max_Number;
-	int minCommonMultiple(int a,int b);//×îĞ¡¹«±¶Êı
-	int maxCommonDicisor(int a,int b);//×î´ó¹«Ô¼Êı
+	int now_Tree;
+	void minCommonMultiple(int& a,int& b);//æœ€å°å…¬å€æ•°
+	int maxCommonDicisor(int a,int b);//æœ€å¤§å…¬çº¦æ•°
 	bool if_same(Node*t1,Node*t2);
 	bool if_symmetry(Node*t1,Node*t2);
-
+	
+	bool test();
 public:
-	mmm(int t,int n);
+	mmm(int t,int n);string answer(const string& ppp);
+	mmm();
 	~mmm();
-	bool createTree(string& a);
-	string generalSymbol();//Éú³ÉËÄÔòÔËËã·û
-	string generalNumber();//Éú³ÉÊı×Ö
-	bool write(const char* tar);//Ğ´ÈëÎÄµµ
-	bool write_ans(const char* ans);//Ğ´Èë´ğ°¸
+	bool createTree();
+	void full_create();
+	string generalSymbol();//ç”Ÿæˆå››åˆ™è¿ç®—ç¬¦
+	string generalNumber();//ç”Ÿæˆæ•°å­—
+	string change(const string&nnn);
+	string re_change(const string&nnn);
+	string jisuan(const string &num1,const string &num2,const string &symbol);
+	string show_tree();
+	bool write(const char*& tar);//å†™å…¥æ–‡æ¡£
+	bool write_ans(const char* ans);//å†™å…¥ç­”æ¡ˆ
+	void set_MaxTree(int a);
+	void set_MaxNumber(int a);
 };
 #endif

@@ -24,12 +24,18 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="checker.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="B_Tree.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="mmm.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="checker.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

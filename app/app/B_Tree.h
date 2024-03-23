@@ -29,6 +29,7 @@ public:
 	bool clear();
 	size_t getSum();
 	string check();
+	Node* get_Root();
 };
 #endif
 

@@ -2,7 +2,7 @@
 
 B_Tree::~B_Tree()
 {
-	delete_(root);
+	//delete_(root);
 }
 
 B_Tree::B_Tree()
@@ -21,13 +21,19 @@ B_Tree::B_Tree(string & a)
 
 bool B_Tree::insert(string&& b)
 {
+	if (root->a.empty()) {
+		root->a = b;
+		sum++;
+		return true;
+	}
 	Node*a = create(b);
 	if (!a)return false;
 	Node*c = nullptr;
 	vector<Node*> temp;
 	temp.push_back(root);
 	while (!temp.empty()) {
-		c = temp.back();
+		c = *(temp.begin());
+		temp.erase(temp.begin());
 		if (c->left == nullptr) {
 			c->left = a;
 			break;
@@ -61,6 +67,11 @@ string B_Tree::check()
 	return check(root);
 }
 
+Node * B_Tree::get_Root()
+{
+	return root;
+}
+
 Node* B_Tree::create(string a)
 {
 	if (!root)return nullptr;
@@ -87,9 +98,12 @@ string B_Tree::check(Node * a)
 
 bool B_Tree::delete_(Node*&a)
 {
-	if (!a)return true;
-	delete_(a->left);
-	delete_(a->right);
+	if (a==nullptr)return true;
+	bool f = delete_(a->left);
+	bool g = delete_(a->right);
+	a->left = nullptr;
+	a->right = nullptr;
 	delete a;
+	a = nullptr;
 	return true;
 }
