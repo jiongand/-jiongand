@@ -146,7 +146,7 @@ bool mmm::createTree()
 	mt19937_64 gen(g());
 	uniform_int_distribution<> display(1, 3);
 	int i;
-	i = 3;
+	i = display(gen);
 	// = display(gen);
 	B_Tree temp;
 	for (int j = i; j > 0; --j) {
@@ -166,12 +166,14 @@ void mmm::full_create()
 	if (max_Number == -1 || max_Tree == -1)return;
 	while (now_Tree < max_Tree) {
 		createTree();//这里还差个重复性检测
-		if (!test()) {
+		string ggg = answer(forest.back().check());
+		if (!test()||ggg.find('-')!=string::npos) {
 			forest.back().clear();
 			forest.pop_back();
 			continue;
 		}
 		++now_Tree;
+		ans_.push_back(ggg);
 	}
 }
 
@@ -341,6 +343,7 @@ string mmm::jisuan(const string & num1, const string & num2, const string & symb
 		int z3 = z1 + z2; int m3 = m1 * m2;
 		minCommonMultiple(z3, m3);
 		string g = to_string(z3) + "/" + to_string(m3);
+		g = re_change(g);
 		return g;
 	}
 	else if (symbol == "-") {
@@ -357,6 +360,7 @@ string mmm::jisuan(const string & num1, const string & num2, const string & symb
 		}
 		minCommonMultiple(z3, m3);
 		string g = to_string(z3) + "/" + to_string(m3);
+		g = re_change(g);
 		return g;
 	}
 	else if (symbol == "×") {
@@ -384,9 +388,11 @@ string mmm::jisuan(const string & num1, const string & num2, const string & symb
 		g = to_string(a) + "/" + to_string(b);
 		g = re_change(g);
 		return g;
-		
 		}minCommonMultiple(z1, z2);
 		string g;
+		if (z2 == 1) {
+			return string(to_string(z1));
+		}
 		g = to_string(z1) + "/" + to_string(z2);
 		g = re_change(g);
 		return g;
@@ -424,9 +430,8 @@ bool mmm::write_ans(const char * ans)
 		return false;
 	}
 	int i = 1;
-	for (auto t : forest) {
-		//很烦，这里要写一个计算自己算式的函数，而如何把字符串式子转化为运算又是难题
-		www << i << "." << t.check() << "=" << endl;
+	for (int j = i - 1; j < ans_.size(); ++j) {
+		www << i << "." << ans_[j] << endl;
 		++i;
 	}
 	return true;

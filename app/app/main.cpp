@@ -33,14 +33,14 @@ int main() {
 		check.compare(g, v, "Grade.txt");
 		return 0;
 	}*/
-	mmm t;
-	cout<<t.answer("2'1/2×2'1/2");
-
-	/*t.full_create();
+	mmm t(10000,10);
+	/*t.full_create();*/
 	const char *a = "Exercises.txt";
 	const char *anser = "Answers.txt";
-	t.write(a);
+	/*t.write(a);
 	t.write_ans(anser);
 	cout << t.show_tree() << endl;*/
+	checker ccc;
+	ccc.compare(a, anser, "end.txt");
 	return 0;
 }

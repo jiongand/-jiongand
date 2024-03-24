@@ -5,6 +5,7 @@
 class mmm
 {
 	vector<B_Tree> forest;
+	vector<string> ans_;
 	int max_Tree;
 	int max_Number;
 	int now_Tree;
@@ -12,7 +13,6 @@ class mmm
 	int maxCommonDicisor(int a,int b);//最大公约数
 	bool if_same(Node*t1,Node*t2);
 	bool if_symmetry(Node*t1,Node*t2);
-	
 	bool test();
 public:
 	mmm(int t,int n);string answer(const string& ppp);
