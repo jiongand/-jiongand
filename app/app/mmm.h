@@ -26,7 +26,7 @@ public:
 	string re_change(const string&nnn);
 	string jisuan(const string &num1,const string &num2,const string &symbol);
 	string show_tree();
-	bool write(const char*& tar);//写入文档
+	bool write(const char* tar);//写入文档
 	bool write_ans(const char* ans);//写入答案
 	void set_MaxTree(int a);
 	void set_MaxNumber(int a);

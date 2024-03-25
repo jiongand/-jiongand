@@ -1,46 +1,46 @@
 ﻿#include"mmm.h"
 #include"checker.h"
-//int argc, char* argv[]
-int main() {
-	/*random_device g;
-	mt19937_64 gen(g());
-	uniform_int_distribution<> display(1, 4);*/
-	/*for (int i = 0; i < 5; i++) {
-		cout << display(gen)  << endl;
-	}*/
-	/*if (argc != 5) {
+//
+int main(int argc, char* argv[]) {
+	if (argc != 5) {
 		cout << "输入参数不正确" << endl;
 		return -1;
 	}
-	checker check;
 	mmm t;
 	char* g = nullptr, *v = nullptr;
 	for (int i = 1; i < argc; i+=2) {
-		if (argv[i] == "-r") {
-			t.set_MaxNumber(atoi(argv[i+1]));
+		string ggg = argv[i];
+		string ppp = argv[i + 1];
+		if (ggg == "-r") {
+			if(atoi(ppp.c_str())>0)
+			t.set_MaxNumber(atoi(ppp.c_str()));
+			else {
+				cout << "错误输入" << endl;
+				return -1;
+			}
 		}
-		if (argv[i] == "-n") {
-			t.set_MaxTree(atoi(argv[i+1]));
+		if (ggg == "-n") {
+			if (atoi(ppp.c_str()) > 0)
+			t.set_MaxTree(atoi(ppp.c_str()));
+			else {
+				cout << "错误输入" << endl;
+				return -1;
+			}
 		}
-		if (argv[i] == "-e") {
-			g = argv[i];
+		if (ggg == "-e") {
+			g = argv[i+1];
 		}
-		if (argv[i] == "-a") {
-			v = argv[i];
+		if (ggg == "-a") {
+			v = argv[i+1];
 		}
 	}
 	if (g != nullptr&&v != nullptr) {
+		checker check;
 		check.compare(g, v, "Grade.txt");
 		return 0;
-	}*/
-	mmm t(10000,10);
-	/*t.full_create();*/
-	const char *a = "Exercises.txt";
-	const char *anser = "Answers.txt";
-	/*t.write(a);
-	t.write_ans(anser);
-	cout << t.show_tree() << endl;*/
-	checker ccc;
-	ccc.compare(a, anser, "end.txt");
+	}
+	t.full_create();
+	t.write("Exercises.txt");
+	t.write_ans("Answers.txt");
 	return 0;
 }

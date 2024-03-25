@@ -405,7 +405,7 @@ string mmm::show_tree()
 	return forest.back().check();
 }
 
-bool mmm::write(const char*& tar)
+bool mmm::write(const char* tar)
 {
 	if (max_Number == -1 || max_Tree == -1)return false;
 	ofstream www(tar);

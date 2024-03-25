@@ -8,6 +8,6 @@ c:\users\233\source\repos\app\app\mmm.cpp(81): warning C4267: “初始化”: �
 c:\users\233\source\repos\app\app\mmm.cpp(93): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
 c:\users\233\source\repos\app\app\mmm.cpp(113): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
   正在生成代码
-  All 412 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 855 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   已完成代码的生成
   app.vcxproj -> C:\Users\233\source\repos\app\x64\Release\app.exe
